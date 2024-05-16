@@ -22,7 +22,7 @@ class McapController(Node):
         self.bagging_timer = self.create_timer(1, self.bagging_timer_callback)
 
     def ams_callback(self, msg):
-        pos_air_status = msg.pos_air
+        pos_air_status = msg.pos_air_status
         if pos_air_status == True and self.prev_pos_air == False:
             self.waiting_to_stop = False
             # print("restarting the timer for the bag")

@@ -28,10 +28,10 @@ class McapController(Node):
             # print("restarting the timer for the bag")
 
         if pos_air_status == True and self.prev_pos_air == False and not self.baging:
-            self.rosbag_proc = subprocess.Popen(['ros2', 'bag', 'record', '-s', 'mcap', '-a'], stdout=subprocess.PIPE) # for testing
+            # self.rosbag_proc = subprocess.Popen(['ros2', 'bag', 'record', '-s', 'mcap', '-a'], stdout=subprocess.PIPE) # for testing
             # print("starting the bag")
 
-            # self.rosbag_proc = subprocess.Popen(['ros2', 'bag', 'record', '-s', 'mcap', '-a', '-o', '/bags'], stdout=subprocess.PIPE) # for the car
+            self.rosbag_proc = subprocess.Popen(['ros2', 'bag', 'record', '-s', 'mcap', '-a', '-o', '/bags'], stdout=subprocess.PIPE) # for the car
             self.baging = True
         elif pos_air_status == False and self.prev_pos_air == True and self.baging:
             self.waiting_to_stop = True
